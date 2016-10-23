@@ -1,0 +1,4 @@
+1. How to show online users
+   => Run server side script continuously, which get data from datbase based on login status, then emit the event to frontend, uodate the online list
+   
+2.    
