@@ -42,6 +42,7 @@
                 padding-right: 10px;
                 margin-bottom: 4px;
                 font-size: 12px;
+                padding: 3px;
             }
             
             .sidebar-name span
@@ -59,14 +60,37 @@
             
             .sidebar-name:hover
             {
-                background-color:#65b75d;
+                background-color:#82ce49;
             }
             
+             p > img
+            {
+                width: 32px;
+                height: 32px;
+                vertical-align:middle;
+            }
+
             .sidebar-name img
             {
                 width: 32px;
                 height: 32px;
                 vertical-align:middle;
+            }
+              
+           
+            .msg-broadcast-emit {
+                border-radius: 11px;
+                border: 2px solid #82ce49;
+                padding: 4px;
+                background-color: #82ce49;
+                color: white;
+            }
+
+            .msg-emit {
+                border-radius: 11px;
+                border: 2px solid #6c6e6f;
+                padding: 4px;
+                background-color: #6c6e6f;
             }
             
             .input_calss {
@@ -74,10 +98,12 @@
                 background-origin: content-box;
                 border-block-start-style: groove;
                 width: 284px;
-                height: 23px;*/
-                border-top-color: greenyellow;
-                margin-top: 21px;
-                width: 284px;
+                height: 23px; greenyellow*/
+
+                border-top-color: white;
+                margin-top: 10px;
+                width: 296px;
+                height: 28px;
             }
 
             .popup-box
@@ -86,7 +112,7 @@
                 position: fixed;
                 bottom: 0px;
                 right: 220px;
-                height: 310px;
+                height: 350px;
                 background-color: rgb(237, 239, 244);
                 width: 300px;
                 border: 1px solid rgba(29, 49, 91, .3);
@@ -94,7 +120,7 @@
             
             .popup-box .popup-head
             {
-                background-color: #65b75d;
+                background-color: #82ce49;
                 padding: 5px;
                 color: white;
                 font-weight: bold;
@@ -127,6 +153,11 @@
 
             .popup-box .input-box
             {
-                height: 25%;
+                height: 20%;
+            }
+
+            .popup-box .preloader-box
+            {
+                height: 5%;
             }
             
