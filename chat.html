@@ -67,7 +67,6 @@
                         element.style.display = "none";
                     }
                 }
-
                
 
                 //creates markup for a new popup. Adds the id to popups array.
@@ -86,13 +85,14 @@
                             calculate_popups();
                             $("#"+textId).focus();
                             $('#'+textId).attr('data-window', 1);
+                            if (self_history == 1)
                             $('#'+id).effect("shake", { direction: "up", times: 2, distance: 25}, 250);
                             return;
                         }
                     }  
                   
                  
-                       if (self_history == 1)
+                    if (self_history == 1)
                            getConversationHistory(textId, session_id);
 
                    socket.emit('isChatWindowOpen', {to_id:textId, from_id:user_id, ChatWindowOpenStatus:1});
@@ -104,9 +104,6 @@
                     element = element + '<div style="clear: both"></div></div><div class="popup-messages '+textId+'" ></div><div class="preloader-box"><img src="30.gif" style="display:none;" id='+textId+"-preloader"+'></div><div class="input-box"><input class="input_calss" placeholder="Enter message here..." data-name="'+name+'" data-sessionid ="'+session_id+'" id="'+textId+'" type="text" onkeypress="send_message(event, this.value, this.id)"></div></div>';
                     
                     document.getElementsByTagName("body")[0].innerHTML = document.getElementsByTagName("body")[0].innerHTML + element;  
-
-
-                        
 
                        $('#'+textId).keydown(function(e){
                                                           
@@ -153,20 +150,19 @@
                     display_popups();
                     
                 }
-
                           
                 //recalculate when window is loaded and also when window is resized.
                 window.addEventListener("resize", calculate_popups);
                 window.addEventListener("load", calculate_popups);
 
-               
-                
+            
         </script>
+         
             
     </head>
     <body>
 
-    <button id="logout">Logout</button>
+    <button onclick="clickme();">Logout</button>
         <div class="chat-sidebar"></div>   
     </body>       
     <script src="chatJs.js"></script>  

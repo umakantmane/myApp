@@ -9,14 +9,17 @@
 
 socket.on('connect', function(data){});
    
- $("#logout").click(function() {
 
-        socket.emit('removeUser', person);
- });
+
+    function clickme() {
+
+            socket.emit('removeUser', person);
+  }
 
  socket.on('offlineUser', function(data) {
         
         $('#'+data.id+'-online').remove(); 
+        $('#'+data.user_name).remove(); 
       
   }); 
 
@@ -88,11 +91,7 @@ socket.on('connect', function(data){});
             
             $(".chat-sidebar").append(addDiv);
 
-            $('#'+users[i].id+"-online").click(function() {
-                  
-                
 
-            });
       } 
 
         if (person == users[i].user_name) 
