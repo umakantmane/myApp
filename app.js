@@ -72,23 +72,15 @@ io.on('connection', function(client){
 
     client.on('messages', function(data) {
    
-     // console.log(data);
-
-      
-
       client.emit('broadMe',data);
       client.broadcast.to(data.id).emit('broad',data);
       var chat  = {user_from: parseInt(data.login_user_session_id), user_to:parseInt(data.friend_session_id), msg:data.msg, status:'delivered', time:Date.now()};
-
-      setTimeout(function(){                         
-             conn.query('INSERT INTO conversation SET ?', chat, function(err, result) {});            
-      },2000);
+                      
+      conn.query('INSERT INTO conversation SET ?', chat, function(err, result) {});            
     
     });    
 
     client.on("get_conversation", function(data){
-
-            //console.log(data);
 
             var condition = [data.login_user_session_id, data.friend_session_id, data.friend_session_id, data.login_user_session_id];
             conn.query('SELECT * FROM conversation WHERE (user_from = ? AND user_to = ?) OR (user_from = ? AND user_to = ?) ORDER BY time ASC', condition, function(err, results) {
@@ -102,6 +94,13 @@ io.on('connection', function(client){
         client.broadcast.to(data.to_id).emit('broadTyping',data);
 
     });
+
+     client.on('isChatWindowOpen', function(data) {
+
+        client.broadcast.to(data.to_id).emit('setChatWindowOpen', data);
+
+    });
+
 
     client.on('typingLeft', function(data) {
     	   client.broadcast.to(data.to_id).emit('broadTypingLeft',data);
