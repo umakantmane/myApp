@@ -1,0 +1,24 @@
+module.exports = {
+'ORDER_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/OrderService?wsdl';
+'COMPANY_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/CompanyService?wsdl';
+'LINEITEM_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/LineItemService?wsdl';
+'PLACEMENT_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/PlacementService?wsdl';
+'CREATIVE_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/CreativeService?wsdl';
+'CREATIVESET_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/CreativeSetService?wsdl';
+'CREATIVETEMPLATE_SERVER_WSDL'= 'https://ads.google.com/apis/ads/publisher/v201608/CreativeTemplateService?wsdl';
+'LINEITEMCREATIVE_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/LineItemCreativeAssociationService?wsdl';
+'LINEITEM_CREATIVE_ASSOC_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/LineItemCreativeAssociationService?wsdl';
+'ADUNITS_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/InventoryService?wsdl';
+'ADRULES_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/AdRuleService?wsdl';
+'TEAM_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/TeamService?wsdl';
+'USER_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/UserService?wsdl';
+'CUSTOMFIELD_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/CustomFieldService?wsdl';
+'CUSTOMTARGETING_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/CustomTargetingService?wsdl';
+'REPORT_SERVER_WSDL']= 'https://ads.google.com/apis/ads/publisher/v201608/ReportService?wsdl';
+'PQL_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/PublisherQueryLanguageService?wsdl';
+'FORECAST_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/ForecastService?wsdl';
+'AUDIENCESEGMENT_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/AudienceSegmentService?wsdl';
+'PRODUCT_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/ProductService?wsdl';
+'RATECARD_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/RateCardService?wsdl';
+'NETWORK_SERVER_WSDL' = 'https://ads.google.com/apis/ads/publisher/v201608/NetworkService?wsdl';
+};
