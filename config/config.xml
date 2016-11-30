@@ -1,15 +1,14 @@
 <databaseInfo>
-<NAME_SPACE>https://www.google.com/apis/ads/publisher/v201511</NAME_SPACE>
 <APPLICATION_NAME>jdtraffic</APPLICATION_NAME>
-<AUTH_SERVER>https://accounts.google.com/o/oauth2/token</AUTH_SERVER>
-<CLIENT_ID>949542021373-lo23uep43tp35klhphl8qm6h0gqut4vt.apps.googleusercontent.com</CLIENT_ID>
-<CLIENT_SECRET>UlkcwtorIe5vbuoaUNniTBIX</CLIENT_SECRET>
-<REFRESH_TOKEN>ya29.CjN5A8CNJku_zhNtW5UdFINSwS8EcunNpTrqIuChGMNOtfr2ZiFkwj-bobprqyb0Mc5zp1o</REFRESH_TOKEN>
+<CLIENT_ID>726146007796-hbq6req8sh2gsa2rsa4h4dfaksc7v42u.apps.googleusercontent.com</CLIENT_ID>
+<CLIENT_SECRET>1RLq-XwF6W6v7_dKkGEPJij9</CLIENT_SECRET>
+<REFRESH_TOKEN>1/2Abea6NIIw5oNMZxOOhyVyHhgOwsuYXwJp71Chyu3GU</REFRESH_TOKEN>
 <NETWORK_CODE>61493089</NETWORK_CODE>
+<REDIRECT_URL>https://jdtraffic.2adpro.com/getRefreshAccessTokens.php</REDIRECT_URL>
 <APP_VERSION>v201608</APP_VERSION>
 <ACCESS_KEY_TABLE>oauth_access_key</ACCESS_KEY_TABLE>
-<HTTP_PATH>http://jdtraffic.localhost</HTTP_PATH>
-<JDTRAFFIC_WS_URL>http://localhost/ws-jdtraffic/web </JDTRAFFIC_WS_URL>
+<HTTP_PATH>http://jdtrafficws.localhost</HTTP_PATH>
+<JDTRAFFIC_WS_URL>http://localhost/ws-jdtraffic/web/index.php</JDTRAFFIC_WS_URL>
 <DB_HOST>localhost</DB_HOST>
 <DB_USER>umakant</DB_USER>
 <DB_PWD>welcome@123</DB_PWD>

@@ -1,24 +1,26 @@
 "use strict";
 
 var createJobsModel = require("../models/createJobs");
+var pushToDfpModel = require("../models/pushToDfp");
 
-console.log(baseUrl);
 module.exports = function function_name(app) {
 
 
-   //app.get('/createJobs', function(req, res) {
+   app.get('/createJobs', function(req, res) {
 		
-		createJobsModel.getJobs(function(err, result){
-
-            /*if (err) {
-            	res.send(err);
-            	return;
-            }else           
-            res.send(result)*/
-
-		});
+		createJobsModel.getJobs(function(err, result){});
+                 res.send("Validate Jobs"); 
        
- //  });
+   });
+   
+   
+    app.get('/pushToDfp', function(req, res) {
+		
+		pushToDfpModel.getJobsToPushInDfp(function(err, result){});
+                 
+                 res.send("Dfp Jobs");  
+       
+   });
 
-}
+};
 

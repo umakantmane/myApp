@@ -1,67 +1,53 @@
 "use strict";
 var serviceClient = require("./serviceClient");
 
-var companyModel = module.exports;
 
 
-  companyModel.createCompanies = function(callback) {
+
+function companyModel() {}
+
+companyModel.prototype.createCompanies = function(callback) {
 
       var serviceObj = new serviceClient();
-      var companyObj = new company();
+      var teamsObj = new Company(this.name, this.type);
+
+      console.log(teamsObj);
     
-   serviceObj.doRequest('CompanyService', 'createCompanies', {companies:companyObj}, function(err, result) {
-         if (err) {
-         	callback(err);
-         	return; 
-         } callback(null, result);
-
-   });
+   serviceObj.doRequest('CompanyService', 'createCompanies', {companies:teamsObj},callback);
    
 };
+   
 
-companyModel.getCompaniesByStatement = function(callback) {
+
+companyModel.prototype.getCompaniesByStatement = function(callback) {
 
       var serviceObj = new serviceClient();
-      var query = new statement("WHERE name LIKE '2wordstheworld%'");
+      var query = new statement(this.queryStatement);
                
-      serviceObj.doRequest('CompanyService', 'getCompaniesByStatement', {filterStatement:query}, function(err, result) {
-         if (err) {
-         	callback(err);
-         	return; 
-         } callback(null, result);
-   });
+      serviceObj.doRequest('CompanyService', 'getCompaniesByStatement', {filterStatement:query}, callback);
    
 };
 
-companyModel.updateCompanies = function(callback) {
+companyModel.prototype.updateCompanies = function(callback) {
 
       var serviceObj = new serviceClient();
       var companyObj = new company();
                
-      serviceObj.doRequest('CompanyService', 'updateCompanies', {companies:companyObj}, function(err, result) {
-         if (err) {
-         	callback(err);
-         	return; 
-         } callback(null, result);
-   });
+      serviceObj.doRequest('CompanyService', 'updateCompanies', {companies:companyObj},callback);
    
 };
 
-
+module.exports = companyModel;
 /*
  * Comment this.id = "83922489" line, when creating new company, 
  * This value is read-only and is assigned by Google when the company is created.
  * id attribute is required for updates..
 */
 
-function company() {
+function Company(name, type) {
 
-  //this.id = "83922489"; 
-	this.name = "xyz.com";
-	this.type = "ADVERTISER";
-	this.address = "Bangalore";
-	this.email = "xxxxxxxx@xxxxx.xxx";
-	this.creditStatus = "ACTIVE";
+  this.name = name;
+	this.type = type;
 
 }
 

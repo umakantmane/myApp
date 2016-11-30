@@ -1,40 +1,41 @@
 "use strict";
 var serviceClient = require("./serviceClient");
 
-var orderModel = module.exports;
+
+ 
+
+function orderModel() {}
 
 
-orderModel.createOrder = function(callback) {
 
-      var serviceObj = new serviceClient();
-      var orderObj = new order();
-      console.log(orderObj);
-    
-   serviceObj.doRequest('OrderService', 'createOrders', {orders:orderObj}, function(err, result) {
-         if (err) {
-         	callback(err);
-         	return; 
-         } callback(null, result);
-
-   });
-   
-};
-
-orderModel.getOrdersByStatement = function(callback) {
+orderModel.prototype.getOrdersByStatement = function(done) {
 
       var serviceObj = new serviceClient();     
-      var query = new statement("WHERE name LI+KE '2WTW%'");
-    
-   serviceObj.doRequest('OrderService', 'getOrdersByStatement', {filterStatement:query}, function(err, result) {
-         if (err) {
-         	callback(err);
-         	return; 
-         } callback(null, result);
+      var query = new statement(this.queyStatement);
 
-   });
+
+      console.log(query);
+    
+   serviceObj.doRequest('OrderService', 'getOrdersByStatement', {filterStatement:query}, done);
    
 };
 
+
+orderModel.prototype.createOrder = function(done) {
+
+      var serviceObj = new serviceClient();
+      var orderObj = new Order(this.orderParams);
+        
+        //this.orderParams.customFields['Trafficking Team'];
+
+        console.log("orderObj", orderObj);
+    
+   serviceObj.doRequest('OrderService', 'createOrders', {orders:orderObj}, done);
+   
+
+};
+
+/*
 orderModel.updateOrders = function(callback) {
 
       var serviceObj = new serviceClient();
@@ -48,20 +49,15 @@ orderModel.updateOrders = function(callback) {
 
    });
    
-};
+};*/
 
 
-function order() {
+function Order(data) {
 
-//this.id = "put id here to update ur ordee"; // uncomment this line for update ur order
-	this.name = "2WTW";
-	this.startDateTime = "";
-   this.endDateTime = "";
-	this.unlimitedEndDateTime = false;
-	this.status = "DRAFT";
-	this.advertiserId = 84342369;
-	this.creatorId = 193870569; //userId
-	this.traffickerId = 193870569;
+	this.name = data.name;
+	this.advertiserId = data.advertiserId;
+	this.traffickerId = data.userId;
+  //this.poNumber = 12345;  //responded with error, if we use poNumber
 
 }
 
@@ -71,3 +67,5 @@ function statement(query) {
      this.query = query;     
 
 }
+
+module.exports = orderModel;

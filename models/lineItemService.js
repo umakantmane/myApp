@@ -2,36 +2,27 @@
 var serviceClient = require("./serviceClient");
 
 
-var lineItemModel = module.exports;
+
+ function lineItemModel() {}
 
 
-lineItemModel.createLineItems = function(callback) {
+lineItemModel.prototype.createLineItems = function(done) {
 
       var serviceObj = new serviceClient();
       var lineItemObj = new lineItem();
     
-   serviceObj.doRequest('LineItemService', 'createLineItems', {lineItems:lineItemObj}, function(err, result) {
-         if (err) {
-         	callback(err);
-         	return; 
-         } callback(null, result);
-
-   });
+   serviceObj.doRequest('LineItemService', 'createLineItems', {lineItems:lineItemObj}, done);
    
 };
 
-lineItemModel.getLineItemsByStatement = function(callback) {
+lineItemModel.prototype.getLineItemsByStatement = function(done) {
 
       var serviceObj = new serviceClient();
-      var lineItemObj = new statement(""); //"WHERE status = 'ACTIVE' ORDER BY id LIMIT 30"
-    
-   serviceObj.doRequest('LineItemService', 'getLineItemsByStatement', {filterStatement:lineItemObj}, function(err, result) {
-         if (err) {
-         	callback(err);
-         	return; 
-         } callback(null, result);
+      var lineItemObj = new statement(this.queryStatement); //"WHERE status = 'ACTIVE' ORDER BY id LIMIT 30"
 
-   });
+      console.log("getLineItemsByStatement", lineItemObj);
+    
+   serviceObj.doRequest('LineItemService', 'getLineItemsByStatement', {filterStatement:lineItemObj}, done);
    
 };
 
@@ -86,3 +77,5 @@ function TextValue() {
 	this.value = "Something";
 	this.CustomFieldValue = "CustomFieldValue";
 }
+
+module.exports = lineItemModel;

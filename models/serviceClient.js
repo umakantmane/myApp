@@ -2,32 +2,24 @@
 
 function serviceClient() { //constructor
 
-    this.dfpUser = new Dfp.User(global.NETWORK_CODE, global.APPLICATION_NAME, global.APP_VERSION);
-
-	this.dfpUser.setSettings({
-		client_id : "726146007796-hbq6req8sh2gsa2rsa4h4dfaksc7v42u.apps.googleusercontent.com",
-		client_secret : "1RLq-XwF6W6v7_dKkGEPJij9",
-		refresh_token : "1/2Abea6NIIw5oNMZxOOhyVyHhgOwsuYXwJp71Chyu3GU",
-		//redirect_url : "https://jdtraffic.2adpro.com/getRefreshAccessTokens.php"
-	});
-
+	///console.log(access_token);
+    var access_token = "ya29.CjGmA5-ui3jEFYkARvyIU67r1iNAvAeSWAK4oqd9GvWvafduC3CFW4Ion5cBh-sapQGv";
+    this.dfpUser = new Dfp.User(NETWORK_CODE, APPLICATION_NAME,APP_VERSION, access_token);
+  
 }
 
 serviceClient.prototype.doRequest = function doRequest(serviceType, OperationName, serviceArgs, callback) {
 
-		this.dfpUser.getService(serviceType, function (err, lineItemService) {
-			console.log(lineItemService);
+		this.dfpUser.getService(serviceType, function (err, response) {
+
 			if (err) {
 				callback(err);
 				return;
 			}
 
-			lineItemService[OperationName](serviceArgs, function (err, results) {
-				//console.log(results);
-				callback(null, results);
-			});
+			response[OperationName](serviceArgs, callback);
 		});
 
-}
+};
 
 module.exports = serviceClient;

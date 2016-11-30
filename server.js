@@ -1,39 +1,23 @@
     "use strict";
 var express = require("express")
   , app = express()
-  , debug = require('debug')('server');
-  global.baseUrl = __dirname; 
+  , debug = require('debug')('server')
+  , db = require("./config/db");
+  
+  //require("./accessTokeCron");
+
+          
+   db.initDb();
+
   require("./routes/routes")(app);
   require("./routes/kueRoute")(app);
-  require('./workers/workers');
+  require('./workers/dfpWorkers');
 
-  const PORT = process.env.PORT || 9090;
+   //console.log(access_token);
+  const PORT = process.env.PORT || 8080;
   const BASE_ULR = process.env.BASE_ULR || "http://localhost:"+PORT;
   
 
-
-
-
-
- //const cluster = require('cluster');
- const http = require('http');
-// const numCPUs = require('os').cpus().length;
-
-/*if (cluster.isMaster) {
-  // Fork workers.
-  for (var i = 0; i < numCPUs; i++) {
-    cluster.fork();
-  }
-
-  cluster.on('death', function(worker) {
-    console.log('worker ' + worker.pid + ' died');
-  });
-} else {
-  app.listen(PORT, function(){
-    console.log("Server running on "+BASE_ULR);
-  });
-}
-*/
 
 app.listen(PORT, function(){
     console.log("Server running on "+BASE_ULR);

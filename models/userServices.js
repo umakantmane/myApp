@@ -1,10 +1,21 @@
 "use strict";
 var serviceClient = require("./serviceClient");
 
-var userModel = module.exports;
 
 
-userModel.createUsers = function(callback) {
+ function userModel() {}
+
+
+ userModel.prototype.getUsersByStatement = function(done) {
+
+      var serviceObj = new serviceClient();     
+      var query = new statement(this.queryStatement);
+    
+   serviceObj.doRequest('UserService', 'getUsersByStatement', {filterStatement:query}, done);
+   
+};
+
+/*userModel.createUsers = function(callback) {
 
       var serviceObj = new serviceClient();
       var usersObj = new user();
@@ -19,20 +30,7 @@ userModel.createUsers = function(callback) {
    
 };
 
-userModel.getUsersByStatement = function(callback) {
 
-      var serviceObj = new serviceClient();     
-      var query = new statement("WHERE name LIKE 'umakant%'");
-    
-   serviceObj.doRequest('UserService', 'getUsersByStatement', {filterStatement:query}, function(err, result) {
-         if (err) {
-         	callback(err);
-         	return; 
-         } callback(null, result);
-
-   });
-   
-};
 
 userModel.getAllRoles = function(callback) {
 
@@ -62,7 +60,7 @@ userModel.getCurrentUser = function(callback) {
    });
    
 };
-
+*/
 
 
 function user() {
@@ -84,3 +82,6 @@ function statement(query) {
      this.query = query;     
      
 }
+
+
+module.exports = userModel;
